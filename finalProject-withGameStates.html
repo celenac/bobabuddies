@@ -137,14 +137,14 @@ void draw(){
 	else if(mousePressed==true && mouseX>(width/2-90) && mouseX<(width/2+90) && mouseY>290 && mouseY<290+50 && state.page==3){ //if 'main menu' button pressed
 		buttonSound.play();
 		console.log("working");
-		restartGame();
+		//restartGame();
 		state.page=0;
 	}
 	else if(mousePressed==true && mouseX>(width/2-90) && mouseX<(width/2+180) && mouseY>360 && mouseY<360+50 && state.page==3){ //if 'try again' button pressed
 		console.log(person[1].getY());
 		buttonSound.play();
 		score=0;
-		restartGame();
+		//restartGame();
 		gameSpeed=3;
 		state.page=2;
 	}
@@ -334,7 +334,7 @@ class GameState{
 	
 	void startGame(){
 		playWithLoop(backgroundSound);
-		background(102, 153, 255);
+		background(145, 181, 255);
 		skyline.show();
 		skyline.move();
 		ground.show();
