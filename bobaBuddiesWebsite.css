@@ -1,6 +1,9 @@
 body {
 	/*background-color: #E3D69A;*/
 	background-color: white;
+	background-image: url("websiteBoba.png");
+	background-position: center bottom;
+	background-repeat: repeat-x;
 }
 
 #banner {
@@ -74,9 +77,9 @@ img.characterpic {
 	position: static;
 }
 
-#bobaFooter {
+/*#bobaFooter {
 	position: relative;
-}
+}*/
 
 @font-face {
     font-family: "Montserrat";
