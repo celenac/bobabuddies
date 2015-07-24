@@ -92,6 +92,10 @@ footer {
 	background-repeat: repeat-x;
 }
 
+#pad {
+	padding-bottom: 300px;
+}
+
 @font-face {
     font-family: "Montserrat";
     font-style: normal;
