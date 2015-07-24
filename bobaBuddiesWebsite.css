@@ -77,6 +77,11 @@ img.characterpic {
 	position: static;
 }
 
+p.pageFont {
+	font-family: Montserrat;
+	font-size: 15px;
+	text-align: center;
+}
 
 @font-face {
     font-family: "Montserrat";
