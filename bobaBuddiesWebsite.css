@@ -74,6 +74,11 @@ img.characterpic {
 	position: static;
 }
 
+#bobaFooter {
+	position: absolute;
+	bottom:0px;
+}
+
 @font-face {
     font-family: "Montserrat";
     font-style: normal;
