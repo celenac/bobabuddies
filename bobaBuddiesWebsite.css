@@ -77,12 +77,6 @@ img.characterpic {
 	position: static;
 }
 
-#whiteBox {
-	position: relative;
-	background-color: white;
-	height: 250px;
-	width: 100%;
-}
 
 @font-face {
     font-family: "Montserrat";
