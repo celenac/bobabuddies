@@ -78,6 +78,7 @@ img.characterpic {
 }
 
 #whiteBox {
+	position: relative;
 	background-color: white;
 	height: 250px;
 	width: 100%;
