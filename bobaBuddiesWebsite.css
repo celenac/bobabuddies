@@ -1,0 +1,115 @@
+body {
+	/*background-color: #E3D69A;*/
+	background-color: white;
+}
+
+#banner {
+	font-family: Bubble;
+	text-align: center;
+	font-size: 75px;
+	text-transform: uppercase;
+	
+}
+
+#navBarColor {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 33.45px;
+	background-color: black;
+	z-index: 3;
+}
+
+ul {
+	font-family: Montserrat;
+	text-align: center;
+	position: relative;
+	top: 0px;
+	left: 27%;
+    list-style-type: none;
+    margin: 0;
+    padding: 4px;
+    overflow: hidden;
+    z-index: 3;
+}
+
+li {
+	float: left;
+}
+
+a.nav:link, a.nav:visited {
+    display: block;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0px;
+}
+
+#mycanvas {
+	position: relative;
+	top: 100px;
+	left: 25%;
+	background-color: #E3D69A;
+	height: 450px;
+	width: 650px;
+}
+
+h3.pageHeading {
+	position: static;
+	color: black;
+	font-family: Bubble;
+	text-align: center;
+	font-size: 30px;
+	margin: 50px;
+	padding-top: 100px;
+}
+
+img.characterpic {
+	height: 225px;
+	width: 225px;
+	position: static;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Montserrat-Regular"), url("http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYAzyDMXhdD8sAj6OAJTFsBI.woff2") format("woff2"), url("http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYL3hpw3pgy2gAi-Ip7WPMi0.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Playfair Display"), local("PlayfairDisplay-Regular"), url("http://fonts.gstatic.com/s/playfairdisplay/v10/2NBgzUtEeyB-Xtpr9bm1CRD8Ne_KjP89kA3_zOrHj8E.woff2") format("woff2"), url("http://fonts.gstatic.com/s/playfairdisplay/v10/2NBgzUtEeyB-Xtpr9bm1CV4QaRhHkZLZrsruvIjJ6Xo.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(http://fonts.gstatic.com/s/pacifico/v7/Q_Z9mv4hySLTMoMjnk_rCXYhjbSpvc47ee6xR_80Hnw.woff2) format('woff2'), url(http://fonts.gstatic.com/s/pacifico/v7/yunJt0R8tCvMyj_V4xSjaXYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Cookie';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cookie-Regular'), url(http://fonts.gstatic.com/s/cookie/v7/5eiDWXYu_7xmow8ddgvSIOvvDin1pK8aKteLpeZ5c0A.woff2) format('woff2'), url(http://fonts.gstatic.com/s/cookie/v7/CytOAGPO6GUb8gQ4_bMS1OvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+}
+
+@font-face {
+font-family: 'Pixel';
+font-style: normal;
+font-weight: normal;
+src: local('BM gaia A10'), url('BMgaia.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Bubble';
+font-style: normal;
+font-weight: normal;
+src: local('SHAKAGRAPHICS 05'), url('SG05.woff') format('woff');
+}
