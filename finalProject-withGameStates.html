@@ -15,7 +15,6 @@ var ground;
 var trashcan;
 var trashcan2;
 var restart=false;
-var playJumpSound=false;
 
 var [] keys=new boolean[4]; //for the key pressing for boba buddies
 
@@ -45,7 +44,7 @@ PImage city2;
 PImage trashcan;
 PImage trashcan2;
 
-PFont scoreFont;
+PFont gameFont;
 
 //declares all of the sounds
 	var jumpSound = new buzz.sound("jumpSound.wav");
@@ -73,7 +72,9 @@ void setup(){
 	
 	score=0;
 	
-	jumpSound.setVolume(90);
+	jumpSound.setVolume(80);
+	buttonSound.setVolume(100);
+
 	
 	//boba buddies' images
 	bobagirl1=loadImage("bobagirl1-1.png");
@@ -101,7 +102,7 @@ void setup(){
 	city1=loadImage("skyline.png");
 	city2=loadImage("skyline2.png");
 	
-	scoreFont=createFont("Impact");
+	gameFont=createFont("Impact");
 	
 	//initializing objects
 	person[0]=new Person(240, bobagirl1, bobagirl1_2, bobagirl1_jump);
@@ -123,7 +124,6 @@ void setup(){
 void draw(){
 	counter++; //counter incrementing for frame change
 	gameEnd();
-	
 	state.show();
 	if(mousePressed==true && mouseX>(width/2-90) && mouseX<(width/2-90+180) && mouseY>280 && mouseY<280+50 && state.page==0){ //if 'start' is pressed
 		buttonSound.play();
@@ -151,6 +151,11 @@ void draw(){
 	else if(mousePressed==true && mouseX>(width/2)-70 && mouseX<width && mouseY>0 && mouseY<50 && state.page==2){ //if 'pause' button pressed
 		buttonSound.play();
 		state.page=4;
+	}
+	else if(mousePressed==true && mouseX>(width/2-90) && mouseX<(width/2-90+150) && mouseY>250-30 && mouseY<250+20 && state.page==4){
+		buttonSound.play();
+		backgroundSound.play();
+		state.page=2;//go back to game
 	}
 }
 
@@ -194,72 +199,70 @@ class GameState{
 			gameOver();
 		}
 		else if(page==4){
-			console.log("pause working");
-			pause();
+			pausePage();
 		}
 	}
 	
 	void home(){
 		score=0;
 		gameSpeed=3;
-		textFont(scoreFont,35);
+		textFont(gameFont,35);
 		playWithLoop(homeMusic);
 		if(counter%20<=10){
 			image(homepage1,width/2,height/2); //background for the page
 				//mouse hovers start button
 			if(mouseX>buttonX && mouseX<buttonX+180 && mouseY>280 && mouseY<280+50){
-				fill(255,255,0);
+				fill(153, 255, 153);
 				rect(width/2-90,280,180,50);
 			}
 			else{
-				fill(0,255,0);
+				fill(51, 204, 51);
 				rect(width/2-90,280,180,50);
 			}
 				//mouse hovers how to play button
 			if(mouseX>buttonX && mouseX<buttonX+180 && mouseY>350 && mouseY<350+50){
-				fill(255,255,0);
+				fill(153, 255, 153);
 				rect(width/2-90,350,180,50);
 			}
 			else{
-				fill(0,255,0);
+				fill(51, 204, 51);
 				rect(width/2-90,350,180,50);
 			}
 			fill(0);
-			console.log(width/2);
 			text("START",width/2-40,320);
-			textFont(scoreFont,30);
+			textFont(gameFont,30);
 			text("HOW TO PLAY", width/2-78,386);
 		}
 		else{
 			image(homepage2,width/2,height/2);
 				//mouse hovers start button
 			if(mouseX>(width/2-90) && mouseX<(width/2-90+180) && mouseY>280 && mouseY<280+50){
-				fill(255,255,0);
+				fill(153, 255, 153);
 				rect(width/2-90,280,180,50);
 			}
 			else{
-				fill(0,255,0);
+				fill(51, 204, 51);
 				rect(width/2-90,280,180,50);
 			}
 				//mouse hovers how to play button
 			if(mouseX>(width/2-90) && mouseX<(width/2-90+180) && mouseY>350 && mouseY<350+50){
-				fill(255,255,0);
+				fill(153, 255, 153);
 				rect(width/2-90,350,180,50);
 			}
 			else{
-				fill(0,255,0);
+				fill(51, 204, 51);
 				rect(width/2-90,350,180,50);
 			}
 			fill(0);
 			text("START",buttonX+50,320);
-			textFont(scoreFont,30);
+			textFont(gameFont,30);
 			text("HOW TO PLAY", width/2-78,386);
 
 		}
 	}
 	
 	void instructions(){
-		textFont(scoreFont,30);
+		textFont(gameFont,30);
 		if(counter%60>=50){
 			image(instructionsp5,width/2,height/2);
 			//back button
@@ -346,14 +349,14 @@ class GameState{
 		//score display
 		textAlign(CENTER);
 		fill(0);
-		textFont(scoreFont,45);
+		textFont(gameFont,45);
 		text(score, width/2, 80);
 		
 		//score increasing
 		//console.log("trashcanX: "+trashcan.getX());
 		//console.log("personX: "+person[3].getX());
 		fill(255,0,0);
-		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed+1){
+		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed-1){
 			//console.log("add 10");
 			score=score+10;
 		}
@@ -364,9 +367,7 @@ class GameState{
 		
 		//key pressing for boba buddies
 		if(keys[3]==true){
-			playJumpSound=true;
 			person[0].showJump();
-			playJumpSound();
 			person[0].jump(3);
 			
 		}
@@ -374,8 +375,6 @@ class GameState{
 			person[0].show();
 		}
 		if(keys[2]==true){
-			playJumpSound=true;
-			playJumpSound();
 			person[1].showJump();
 			person[1].jump(2);
 
@@ -384,8 +383,6 @@ class GameState{
 			person[1].show();
 		}
 		if(keys[1]==true){
-			playJumpSound=true;
-			playJumpSound();
 			person[2].showJump();
 			person[2].jump(1); 
 
@@ -394,8 +391,6 @@ class GameState{
 			person[2].show();
 		}
 		if(keys[0]==true){
-			playJumpSound=true;
-			playJumpSound();
 			person[3].showJump();
 			person[3].jump(0); 
 		}
@@ -404,20 +399,20 @@ class GameState{
 		}
 		
 		//clicking the 'pause' button
-		textFont(scoreFont, 30);
-		if(mouseX>(width/2)-70 && mouseX<width && mouseY>0 && mouseY<50){
+		textFont(gameFont, 30);
+		if(mouseX>(width/2)-50 && mouseX<width && mouseY>0 && mouseY<50){
 			fill(255,255,255,100);
-			text("PAUSE",width-70,35);
+			text("PAUSE",width-50,35);
 		}
 		else{
 			fill(0,0,0,100);
-			text("PAUSE",width-70,35);
+			text("PAUSE",width-50,35);
 		}
 	}
 	
 	void gameOver(){
 		backgroundSound.stop();
-		textFont(scoreFont,40);
+		textFont(gameFont,40);
 		image(gameover,width/2,height/2);
 		text(score,width/2-5,260);
 			//'main menu' button
@@ -439,22 +434,24 @@ class GameState{
 			rect(width/2-90,360,180,50);
 		}
 		fill(0);
-		textFont(scoreFont,30);
+		textFont(gameFont,30);
 		text("MAIN MENU",width/2,327);
 		text("TRY AGAIN", width/2,397);
 	}
 	
-	void pause(){
-		backgroundSound.togglePlay()
-		console.log("pause method working");
+	void pausePage(){
+		textFont(gameFont, 40);
+		backgroundSound.pause(); //pauses background music
 		backgroundSound.pause();
 		image(pause,width/2,height/2);
-	}
-	
-	void playJumpSound(){
-		if(playJumpSound=true){
-			jumpSound.play();
-		}
+		if(mouseX>(width/2-90) && mouseX<(width/2-90+150) && mouseY>250-30 && mouseY<250+20){
+				fill(255,255,0,10);
+				text("RESUME",buttonX+80,250);
+			}
+			else{
+				fill(255,255,0,50);
+				text("RESUME",buttonX+80,250);
+			}
 	}
 }
 
@@ -567,12 +564,13 @@ class Person{
 	void jump(number){
 		if(isjumping==false && keys[number]==true)
 		{
+			jumpSound.setTime(0.1);
+			jumpSound.play();
 		    isjumping=true;
 		    yinc=15;
 		}
 		if(isjumping==true) //if character is jumping
 		{	
-			playJumpSound=false;
 		    y=y-yinc; //add thrust to current y position
 		    yinc=yinc-1; 
 		}
