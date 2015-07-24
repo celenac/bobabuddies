@@ -1,9 +1,6 @@
 body {
 	/*background-color: #E3D69A;*/
 	background-color: white;
-	background-image: url("websiteBoba.png");
-	background-position: center bottom;
-	background-repeat: repeat-x;
 }
 
 #banner {
@@ -81,6 +78,12 @@ p.pageFont {
 	font-family: Montserrat;
 	font-size: 15px;
 	text-align: center;
+}
+
+#whiteBox {
+	background-image: url("websiteBoba.png");
+	background-position: center bottom;
+	background-repeat: repeat-x;
 }
 
 @font-face {
