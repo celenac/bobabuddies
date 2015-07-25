@@ -62,7 +62,7 @@ a.nav:link, a.nav:visited {
 	border-width: 15px;
 }
 
-h3.pageHeading {
+h2.pageHeading {
 	position: static;
 	color: black;
 	font-family: Bubble;
@@ -116,6 +116,9 @@ p.pageFont {
 
 h2.pageHeading {
 	font-family: Bubble;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 35px;
 }
 
 
