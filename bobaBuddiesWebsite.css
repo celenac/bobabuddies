@@ -36,7 +36,8 @@ ul {
 }
 
 li {
-	float: left;
+	display: inline-block;
+	float: none;
 }
 
 a.nav:link, a.nav:visited {
