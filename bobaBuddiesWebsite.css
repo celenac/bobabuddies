@@ -36,9 +36,7 @@ ul {
 }
 
 li {
-	display: block
-	margin-right: auto;
-	margin-left: auto;
+	float: left;
 }
 
 a.nav:link, a.nav:visited {
