@@ -114,6 +114,10 @@ p.pageFont {
 	font-size: 18px;
 }
 
+h2.pageHeading {
+	font-family: Bubble;
+}
+
 
 
 @font-face {
