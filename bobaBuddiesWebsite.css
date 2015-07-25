@@ -130,7 +130,7 @@ img.creator {
 
 #creators {
 	display: inline-block;
-	
+	text-align: center;
 }
 
 #creatorTitle {
@@ -146,7 +146,7 @@ p.maggieDescription {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	width: 650px;
+	width: 350px;
 }
 
 p.celenaDescription {
@@ -156,7 +156,7 @@ p.celenaDescription {
 	margin-left: auto;
 	margin-right: auto;
 	padding-bottom: 300px;
-	width: 700px;
+	width: 350px;
 }
 
 
