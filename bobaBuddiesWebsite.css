@@ -29,7 +29,9 @@ ul {
 	text-align: center;
 	position: relative;
 	top: 0px;
-	left: 27%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
     list-style-type: none;
     margin: 0;
     padding: 4px;
