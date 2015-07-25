@@ -67,6 +67,7 @@ h2.pageHeading {
 	color: black;
 	font-family: Bubble;
 	text-align: center;
+	text-transform: uppercase;
 	font-size: 35px;
 	margin: 50px;
 	padding-top: 100px;
@@ -112,13 +113,6 @@ p.pageFont {
 	font-family: Montserrat;
 	text-align: center;
 	font-size: 18px;
-}
-
-h2.pageHeading {
-	font-family: Bubble;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 35px;
 }
 
 
