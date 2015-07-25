@@ -36,6 +36,7 @@ ul {
 li {
 	display: inline-block;
 	float: none;
+	padding:3px;
 }
 
 a.nav:link, a.nav:visited {
@@ -54,8 +55,9 @@ h2.pageHeading {
 	text-align: center;
 	text-transform: uppercase;
 	font-size: 35px;
-	margin: 50px;
-	padding-top: 100px;
+	margin: auto;
+	padding:50px;
+	
 }
 
 /* HOME PAGE ONLY */
@@ -100,7 +102,7 @@ img.characterpic {
 }
 
 
-img.characterpic {
+div.characterpic {
 	position: relative;
 	left: 10%;
 }
