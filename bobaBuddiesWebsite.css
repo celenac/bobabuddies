@@ -115,10 +115,11 @@ p.pageFont {
 	font-size: 18px;
 }
 
-img.creatorMaggie {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+img.creator {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+	padding-top: 200px;
 	height: 350px;
 	width: 350px;
 }
