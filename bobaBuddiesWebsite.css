@@ -119,14 +119,15 @@ img.creatorMaggie {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	height: 100px;
-	width: 100px;
+	height: 350px;
+	width: 350px;
 }
 
 #creatorTitle {
 	font-family: Bubble;
 	font-size: 35px;
 	text-align: center;
+	text-transform: uppercase;
 }
 
 
