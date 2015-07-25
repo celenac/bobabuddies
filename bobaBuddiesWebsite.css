@@ -53,6 +53,7 @@ a.nav:link, a.nav:visited {
 #mycanvas {
 	position: relative;
 	top: 100px;
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #E3D69A;
