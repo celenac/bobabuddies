@@ -29,9 +29,6 @@ ul {
 	text-align: center;
 	position: relative;
 	top: 0px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
     list-style-type: none;
     padding: 4px;
     overflow: hidden;
