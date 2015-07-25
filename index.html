@@ -164,7 +164,7 @@ void draw(){
 	state.show();
 }
 void mouseClicked(){
-	if(mouseX>width/2-255 && mouseX<width/2-75 && mouseY>265 && mouseY<415 && state.page==0){ //if 'start' is pressed
+	if(mouseX>width/2-255 && mouseX<width/2-5 && mouseY>265 && mouseY<415 && state.page==0){ //if 'start' is pressed
 		buttonSound.play();
 		homeMusic.stop();
 		state.page=2; //go to game
@@ -265,7 +265,7 @@ class GameState{
 		if(counter%20<=10){
 			image(homepage1,width/2,height/2); //background for the page
 				//mouse hovers start button
-			if(mouseX>width/2-255 && mouseX<width/2-75 && mouseY>265 && mouseY<415){
+			if(mouseX>width/2-255 && mouseX<width/2-5 && mouseY>265 && mouseY<415){
 				image(start2, width/2-130, 340, 250,150);
 			}
 			else{
@@ -289,7 +289,7 @@ class GameState{
 		else{
 			image(homepage2,width/2,height/2);
 				//mouse hovers start button
-			if(mouseX>width/2-255 && mouseX<width/2-75 && mouseY>265 && mouseY<415){
+			if(mouseX>width/2-255 && mouseX<width/2-5 && mouseY>265 && mouseY<415){
 				image(start2, width/2-130, 340, 250,150);
 			}
 			else{
