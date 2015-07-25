@@ -115,6 +115,20 @@ p.pageFont {
 	font-size: 18px;
 }
 
+img.creatorMaggie {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
+	width: 100px;
+}
+
+#creatorTitle {
+	font-family: Bubble;
+	font-size: 35px;
+	text-align: center;
+}
+
 
 
 @font-face {
