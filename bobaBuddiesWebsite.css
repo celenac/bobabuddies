@@ -124,6 +124,10 @@ img.creator {
 	width: 350px;
 }
 
+#images {
+	text-align: center;
+}
+
 #creatorTitle {
 	font-family: Bubble;
 	font-size: 35px;
