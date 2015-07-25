@@ -1,7 +1,7 @@
 $(document).ready(
 
-$("#banner").click(function() {
-	window.location(bobabuddies.github.io);
+$("#banner").onClick(function() {
+	window.location.href(bobabuddies.github.io);
 }); 
 
 )
