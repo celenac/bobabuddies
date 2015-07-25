@@ -177,6 +177,14 @@ void mouseClicked(){
 		buttonSound.play();
 		state.page=0;
 	}
+	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>380-25 && mouseY<380+25 && state.page==0) {//if 'credits' is pressed
+		buttonSound.play();
+		state.page=5;
+	}
+	else if(mouseX>width/2-40 && mouseX<width/2+40 && mouseY>400-20 && mouseY<400+20 && state.page==5){ //if 'back' is pressed in the credits 
+		buttonSound.play();
+		state.page=0;
+	}
 	else if(mouseX>(width/2-100) && mouseX<(width/2+100) && mouseY>290 && mouseY<340 && state.page==3){ //if 'main menu' button pressed
 		buttonSound.play();
 		console.log("working");
@@ -211,6 +219,7 @@ class GameState{
 	PImage instructionsp3;
 	PImage instructionsp4;
 	PImage instructionsp5;
+	PImage credits;
 	PImage gameover;
 	PImage pause;
 	GameState(p){
@@ -222,6 +231,7 @@ class GameState{
 		instructionsp3=loadImage("backgrounds/instructionsPage0002.png");
 		instructionsp4=loadImage("backgrounds/instructionsPage0003.png");
 		instructionsp5=loadImage("backgrounds/instructionsPage0004.png");
+		credits=loadImage("backgrounds/credits.png");
 		gameover=loadImage("backgrounds/gameOver.png");
 		pause=loadImage("backgrounds/pause.png");
 	}
@@ -241,6 +251,9 @@ class GameState{
 		}
 		else if(page==4){
 			pausePage();
+		}
+		else if (page==5){
+			creditsPage();
 		}
 	}
 	
@@ -321,7 +334,7 @@ class GameState{
 				image(back1, 50,25);
 			}
 		}
-		else if(counter%60>=50){
+		else if(counter%60>=30){
 			image(instructionsp3,width/2,height/2);
 			//back button
 			if(mouseX>0 && mouseX<100 && mouseY>0 && mouseY<50){
@@ -464,9 +477,20 @@ class GameState{
 		if(mouseX>(width/2-90) && mouseX<(width/2-90+150) && mouseY>250-30 && mouseY<250+20){
 				image(resume2, width/2,260);
 			}
-			else{
-				image(resume1, width/2,260);
+		else{
+			image(resume1, width/2,260);
+		}
+	}
+
+	void creditsPage(){
+		image(credits,width/2,height/2);
+		//back button
+		if(mouseX>width/2-40 && mouseX<width/2+40 && mouseY>400-20 && mouseY<400+20){
+				image(back2, width/2,400);
 			}
+		else{
+			image(back1, width/2,400);
+		}
 	}
 }
 
