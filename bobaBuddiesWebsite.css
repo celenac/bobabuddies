@@ -147,6 +147,7 @@ p.maggieDescription {
 	margin-left: auto;
 	margin-right: auto;
 	width: 350px;
+	float: left;
 }
 
 p.celenaDescription {
@@ -157,6 +158,7 @@ p.celenaDescription {
 	margin-right: auto;
 	padding-bottom: 300px;
 	width: 350px;
+	float: right;
 }
 
 
