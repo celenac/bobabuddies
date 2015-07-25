@@ -33,13 +33,15 @@ ul {
 	margin-left: auto;
 	margin-right: auto;
     list-style-type: none;
-    margin: 0;
     padding: 4px;
     overflow: hidden;
     z-index: 3;
 }
 
 li {
+	display: block
+	margin-right: auto;
+	margin-left: auto;
 	float: left;
 }
 
