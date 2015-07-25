@@ -2,9 +2,6 @@
 body {
 	/*background-color: #E3D69A;*/
 	background-color: white;
-	background-image: url("websiteBoba.png");
-	background-position: center bottom;
-	background-repeat: repeat-x;
 }
 
 #banner {
@@ -84,11 +81,9 @@ p.pageFont {
 }
 
 footer {
-	position: absolute;
+	text-align:center;
 	bottom: 0px;
-	background-image: url("websiteBoba.png");
 	background-position: center bottom;
-	background-repeat: repeat-x;
 }
 
 #pad {
@@ -141,7 +136,7 @@ img.creator {
 table{
 	margin-right:auto;
 	margin-left:auto;
-	border-spacing:75px;
+	border-spacing:90px;
 }
 
 td{
