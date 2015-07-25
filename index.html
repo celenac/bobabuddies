@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/x-icon" href="favicon-milktea.png" />
 <title>Boba Buddies</title>
 <link type="text/css" rel="stylesheet" href="bobaBuddiesWebsite.css"/>
 <script src="bobaBuddiesJQuery.js"></script>
 <script src="http://cloud.github.com/downloads/processing-js/processing-js/processing-1.4.1.min.js"></script>
-<script src="https://raw.githubusercontent.com/jaysalvat/buzz/master/dist/buzz.js"></script>
-<script src="https://raw.githubusercontent.com/jaysalvat/buzz/master/dist/buzz.min.js"></script>
+<script src="https://rawgit.com/jaysalvat/buzz/master/dist/buzz.js" type="text/javascript"></script>
+<script src="https://rawgit.com/jaysalvat/buzz/master/dist/buzz.min.js" type="text/javascript"></script>
 <script type="text/processing" data-processing-target="mycanvas">
 //objects
 var person[]=new var [4]; 
@@ -14,7 +15,7 @@ var skyline;
 var ground;
 var trashcan;
 var trashcan2;
-var restart=false;
+var randomTrashX=random(500,width+500); //random trashcan position
 
 var [] keys=new boolean[4]; //for the key pressing for boba buddies
 
@@ -47,24 +48,21 @@ PImage trashcan2;
 PFont gameFont;
 
 //declares all of the sounds
-	var jumpSound = new buzz.sound("jumpSound.wav");
-	var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
-	var buttonSound = new buzz.sound ("buttonClickSound.mp3");
-	var homeMusic= new buzz.sound ("homepageSound.mp3");
-	var blank=new buzz.sound ("2secblank.mp3");
+var jumpSound = new buzz.sound("jumpSound.wav");
+var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
+var buttonSound = new buzz.sound ("buttonClickSound.mp3");
+var homeMusic= new buzz.sound ("homepageSound.mp3");
+var blank=new buzz.sound ("2secblank.mp3");
 	
- //mute boolean
-	var muted = false;
-
-	//allows playing with buzz API
-	void playWithLoop(soundToPlay) {
-		soundToPlay.play();
-		soundToPlay.loop();
-	}
+//allows playing with buzz API
+void playWithLoop(soundToPlay) {
+	soundToPlay.play();
+	soundToPlay.loop();
+}
 
 
 void setup(){
-	size(650,450);
+	size(650,450, P2D);
 	imageMode(CENTER); 
 	strokeWeight(4);
 	
@@ -75,7 +73,6 @@ void setup(){
 	jumpSound.setVolume(80);
 	buttonSound.setVolume(100);
 
-	
 	//boba buddies' images
 	bobagirl1=loadImage("bobagirl1-1.png");
 	bobagirl2=loadImage("bobagirl2-1.png");
@@ -110,8 +107,8 @@ void setup(){
 	person[2]=new Person(120, bobagirl2, bobagirl2_2, bobagirl2_jump);
 	person[3]=new Person(60, bobaboy2, bobaboy2_2, bobaboy2_jump);
 	ground=new Scroller(street1, street2,1731,410,80, 0);
-	trashcan=new Obstacle(trashcan, random(300,width+1000), 350);
-	trashcan2=new Obstacle(trashcan2, random(300,width+1000), 350);
+	trashcan=new Obstacle(trashcan, randomTrashX, 350);
+	trashcan2=new Obstacle(trashcan2, randomTrashX+random(350,700), 350);
 	skyline=new Scroller(city1,city2,1661,190,height, -1);
 	
 	//keys for controling boba buddies
@@ -140,11 +137,15 @@ void draw(){
 	}
 	else if(mousePressed==true && mouseX>(width/2-90) && mouseX<(width/2+90) && mouseY>290 && mouseY<290+50 && state.page==3){ //if 'main menu' button pressed
 		buttonSound.play();
+		console.log("working");
+		//restartGame();
 		state.page=0;
 	}
 	else if(mousePressed==true && mouseX>(width/2-90) && mouseX<(width/2+180) && mouseY>360 && mouseY<360+50 && state.page==3){ //if 'try again' button pressed
+		console.log(person[1].getY());
 		buttonSound.play();
 		score=0;
+		//restartGame();
 		gameSpeed=3;
 		state.page=2;
 	}
@@ -157,6 +158,13 @@ void draw(){
 		backgroundSound.play();
 		state.page=2;//go back to game
 	}
+}
+
+void restartGame(){
+	person[0].setY(347);
+		person[1].setY(347);
+		person[2].setY(347);
+		person[3].setY(347);
 }
 
 class GameState{
@@ -327,7 +335,7 @@ class GameState{
 	
 	void startGame(){
 		playWithLoop(backgroundSound);
-		background(102, 153, 255);
+		background(145, 181, 255);
 		skyline.show();
 		skyline.move();
 		ground.show();
@@ -513,7 +521,7 @@ class Obstacle{
 	
 	void move(){
 		x=x-gameSpeed;
-		if(x<random(-3000,-500)){
+		if(x<random(-2000,-500)){
 			x=random(width+100, width+1000);
 		}
 	}
@@ -526,7 +534,7 @@ class Obstacle{
 		return y;
 	}
 	
-	public var setX(newX){ //used to restart the game
+	public var setX(newX){ //used to give trashcans new x positions when game is restarted
 		x=newX;
 	}
 }
@@ -588,6 +596,10 @@ class Person{
 	public var getY(){
 		return y;
 	}
+	
+	public void setY(newY){
+		y=newY;
+	}
 }
 
 void keyPressed(){
@@ -601,45 +613,45 @@ void gameEnd(){
 	//if any of the buddies touching the 1st trashcan
 	if(person[0].getX()>=trashcan.getX()-10 && person[0].getX()<=trashcan.getX()+15 && person[0].getY()>=trashcan.getY()-15 && person[0].getY()<=trashcan.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	if(person[1].getX()>=trashcan.getX()-10 && person[1].getX()<=trashcan.getX()+15 && person[1].getY()>=trashcan.getY()-15 && person[1].getY()<=trashcan.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	if(person[2].getX()>=trashcan.getX()-10 && person[2].getX()<=trashcan.getX()+15 && person[2].getY()>=trashcan.getY()-15 && person[2].getY()<=trashcan.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	if(person[3].getX()>=trashcan.getX()-10 && person[3].getX()<=trashcan.getX()+15 && person[3].getY()>=trashcan.getY()-15 && person[3].getY()<=trashcan.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	
 	//if any of the buddies touching the 2nd trashcan
 	if(person[0].getX()>=trashcan2.getX()-10 && person[0].getX()<=trashcan2.getX()+15 && person[0].getY()>=trashcan2.getY()-15 && person[0].getY()<=trashcan2.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));
 	}
 	if(person[1].getX()>=trashcan2.getX()-10 && person[1].getX()<=trashcan2.getX()+15 && person[1].getY()>=trashcan2.getY()-15 && person[1].getY()<=trashcan2.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));
 	}
 	if(person[2].getX()>=trashcan2.getX()-10 && person[2].getX()<=trashcan2.getX()+15 && person[2].getY()>=trashcan2.getY()-15 && person[2].getY()<=trashcan2.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));
 	}
 	if(person[3].getX()>=trashcan2.getX()-10 && person[3].getX()<=trashcan2.getX()+15 && person[3].getY()>=trashcan2.getY()-15 && person[3].getY()<=trashcan2.getY()+15){
 		state.page=3;
-		trashcan.setX(random(300,width+1000));
-		trashcan2.setX(random(300,width+1000));	
+		trashcan.setX(randomTrashX);
+		trashcan2.setX(randomTrashX+random(350,700));
 	}
 }
 
