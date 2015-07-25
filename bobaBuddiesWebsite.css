@@ -128,6 +128,11 @@ img.creator {
 	text-align: center;
 }
 
+#creators {
+	display: inline-block;
+	
+}
+
 #creatorTitle {
 	font-family: Bubble;
 	font-size: 35px;
