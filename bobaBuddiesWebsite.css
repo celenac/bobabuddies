@@ -134,6 +134,7 @@ p.maggieDescription {
 	font-family: Montserrat;
 	font-size: 15px;
 	text-align: center;
+	width: 650px;
 }
 
 p.celenaDescription {
@@ -141,6 +142,7 @@ p.celenaDescription {
 	font-size: 15px;
 	text-align: center;
 	padding-bottom: 300px;
+	width: 700px;
 }
 
 
