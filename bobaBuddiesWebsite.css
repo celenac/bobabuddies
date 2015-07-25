@@ -130,6 +130,19 @@ img.creatorMaggie {
 	text-transform: uppercase;
 }
 
+p.maggieDescription {
+	font-family: Montserrat;
+	font-size: 15px;
+	text-align: center;
+}
+
+p.celenaDescription {
+	font-family: Montserrat;
+	font-size: 15px;
+	text-align: center;
+	padding-bottom: 300px;
+}
+
 
 
 @font-face {
