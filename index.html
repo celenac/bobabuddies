@@ -46,6 +46,8 @@ PImage city1;
 PImage city2;
 PImage trashcan;
 PImage trashcan2;
+PImage mute;
+PImage unmute;
 
 //loading button images
 PImage back1;
@@ -73,6 +75,8 @@ var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
 var buttonSound = new buzz.sound ("buttonClickSound.mp3");
 var homeMusic= new buzz.sound ("homepageSound.mp3");
 var blank=new buzz.sound ("2secblank.mp3");
+var hover=new buzz.sound("hoverSound.mp3");
+var scoreSound=new buzz.sound("scoreSound.mp3");
 	
 //allows playing with buzz API
 void playWithLoop(soundToPlay) {
@@ -138,6 +142,10 @@ void setup(){
 	start2=loadImage("buttons/startButton2.png");
 	tryagain1=loadImage("buttons/tryagainButton.png");
 	tryagain2=loadImage("buttons/tryagainButton2.png");
+
+	//speaker icons
+	unmute=loadImage("otherimages/unmute.png");
+	mute=loadImage("otherimages/mute.png");
 	
 	gameFont=createFont("Impact");
 	
@@ -168,6 +176,14 @@ void mouseClicked(){
 		buttonSound.play();
 		homeMusic.stop();
 		state.page=2; //go to game
+	}
+	else if (homeMusic.isMuted()==false && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is unmuted
+		homeMusic.mute();
+		backgroundSound.mute();
+	}
+	else if (homeMusic.isMuted()==true && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is muted
+		homeMusic.unmute();
+		backgroundSound.unmute();
 	}
 	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>300-25 && mouseY<300+25 && state.page==0){ //if 'how to play' is pressed
 		buttonSound.play();
@@ -238,7 +254,7 @@ class GameState{
 	
 	void show(){
 		if(page==0){
-			home();
+			homePage();
 		}
 		else if (page==1){
 			instructions();
@@ -257,7 +273,7 @@ class GameState{
 		}
 	}
 	
-	void home(){
+	void homePage(){
 		score=0;
 		gameSpeed=3;
 		textFont(gameFont,35);
@@ -285,6 +301,14 @@ class GameState{
 			else{
 				image(credits1,width/2+150, 380);
 			}
+				//speaker icon for muting music
+			if(homeMusic.isMuted()){
+				image(mute,30,20,50,36);
+
+			}
+			else{
+				image(unmute,30,20,50,36);
+			}
 		}
 		else{
 			image(homepage2,width/2,height/2);
@@ -308,6 +332,15 @@ class GameState{
 			}
 			else{
 				image(credits1,width/2+150, 380);
+			}
+				//speaker icon for muting music
+			if(homeMusic.isMuted()){
+				image(mute,30,20,50,36);
+
+
+			}
+			else{
+				image(unmute,30,20,50,36);
 			}
 		}
 	}
@@ -399,10 +432,14 @@ class GameState{
 		fill(255,0,0);
 		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed-1){
 			//console.log("add 10");
+			jumpSound.setTime(1);
+			jumpSound.play();
 			score=score+10;
 		}
 		if(trashcan2.getX()<person[3].getX() && trashcan2.getX()>=person[3].getX()-gameSpeed-1){
 			//console.log("add 10");
+			jumpSound.setTime(1);
+			jumpSound.play();
 			score=score+10;
 		}
 		
