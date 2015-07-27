@@ -155,10 +155,10 @@ void setup(){
 	person[1]=new Person(180, bobaboy1, bobaboy1_2, bobaboy1_jump);
 	person[2]=new Person(120, bobagirl2, bobagirl2_2, bobagirl2_jump);
 	person[3]=new Person(60, bobaboy2, bobaboy2_2, bobaboy2_jump);
-	ground=new Scroller(street1, street2,1731,410,80, 0);
-	trashcan=new Obstacle(trashcan, randomTrashX, 350);
-	trashcan2=new Obstacle(trashcan2, randomTrashX+random(350,700), 350);
-	skyline=new Scroller(city1,city2,1661,190,height, -1);
+	ground=new Scroller(street1, street2,1731,370,170, 0);
+	trashcan=new Obstacle(trashcan, randomTrashX, 265);
+	trashcan2=new Obstacle(trashcan2, randomTrashX+random(350,700), 265);
+	skyline=new Scroller(city1,city2,1661,130,height-80, -1);
 	
 	//keys for controling boba buddies
 	keys[0]=false;
@@ -173,6 +173,7 @@ void draw(){
 	state.show();
 }
 void mouseClicked(){
+	//changing states
 	if(mouseX>width/2-255 && mouseX<width/2-5 && mouseY>265 && mouseY<415 && state.page==0){ //if 'start' is pressed
 		buttonSound.play();
 		homeMusic.stop();
@@ -225,6 +226,13 @@ void mouseClicked(){
 		backgroundSound.play();
 		state.page=2;//go back to game
 	}
+	
+	//mobile buttons in game
+	if(mouseX>10 && mouseX<90+70 && mouseY>300 && mouseY<440){keys[0]=true;}
+	if(mouseX>220-60 && mouseX<220+70 && mouseY>300 && mouseY<440){keys[1]=true;}
+	if(mouseX>430-70 && mouseX<430+70 && mouseY>300 && mouseY<440){keys[2]=true;}
+	if(mouseX>560-70 && mouseX<560+70 && mouseY>300 && mouseY<440){keys[3]=true;}
+
 }
 
 class GameState{
@@ -239,6 +247,8 @@ class GameState{
 	PImage credits;
 	PImage gameover;
 	PImage pause;
+	PImage jumpButton1;
+	PImage jumpButton2;
 	GameState(p){
 		page=p;
 		homepage1=loadImage("backgrounds/home1.png");
@@ -251,6 +261,8 @@ class GameState{
 		credits=loadImage("backgrounds/credits.png");
 		gameover=loadImage("backgrounds/gameOver.png");
 		pause=loadImage("backgrounds/pause.png");
+		jumpButton1=loadImage("otherimages/jumpButton.png");
+		jumpButton2=loadImage("otherimages/jumpButton2.png");
 	}
 	
 	void show(){
@@ -448,33 +460,38 @@ class GameState{
 		if(keys[3]==true){
 			person[0].showJump();
 			person[0].jump(3);
-			
+			image(jumpButton2,90, 370);
 		}
 		else{
 			person[0].show();
+			image(jumpButton1,90, 370);
 		}
 		if(keys[2]==true){
 			person[1].showJump();
 			person[1].jump(2);
-
+			image(jumpButton2,220, 370);
 		}
 		else{
 			person[1].show();
+			image(jumpButton1,220, 370);
 		}
 		if(keys[1]==true){
 			person[2].showJump();
 			person[2].jump(1); 
-
+			image(jumpButton2,430, 370);
 		}
 		else{
 			person[2].show();
+			image(jumpButton1,430, 370);
 		}
 		if(keys[0]==true){
 			person[3].showJump();
 			person[3].jump(0); 
+			image(jumpButton2,560, 370);
 		}
 		else{
 			person[3].show();
+			image(jumpButton1,560, 370);
 		}
 		
 		//clicking the 'pause' button
@@ -484,6 +501,40 @@ class GameState{
 		else{
 			image(pause1,width-50,25);
 		}
+		
+		//mobile buttons (4321)
+		fill(255,255,0);
+		strokeWeight(4);
+		/*rect(50,320, 100,100);
+		rect(170, 320, 100,100);
+		rect(width-270, 320,100,100);
+		rect(width-150, 320, 100, 100);*/
+		
+		if(mouseX>10 && mouseX<90+70 && mouseY>300 && mouseY<440){
+			image(jumpButton2,90, 370);
+		}
+		else{
+			image(jumpButton1,90,370);
+		}
+		if(mouseX>220-60 && mouseX<220+70 && mouseY>300 && mouseY<440){
+			image(jumpButton2,220, 370);
+		}
+		else{
+			image(jumpButton1,220,370);
+		}
+		if(mouseX>430-70 && mouseX<430+70 && mouseY>300 && mouseY<440){
+			image(jumpButton2,430, 370);
+		}
+		else{
+			image(jumpButton1,430,370);
+		}
+		if(mouseX>560-70 && mouseX<560+70 && mouseY>300 && mouseY<440){
+			image(jumpButton2,560, 370);
+		}
+		else{
+			image(jumpButton1,560,370);
+		}
+		
 	}
 	
 	void gameOver(){
@@ -618,7 +669,8 @@ class Person{
 	var pic3;
 	Person(xPosition, picture1, picture2, picture3){
 		x=xPosition;
-		y=347;
+		//y=347; //previous y position
+		y=260;
 		isjumping=false;
 		pic1=picture1;
 		pic2=picture2;
@@ -651,7 +703,7 @@ class Person{
 		    y=y-yinc; //add thrust to current y position
 		    yinc=yinc-1; 
 		}
-		if(y>=347) //if character's y reaches the ground
+		if(y>=260) //if character's y reaches the ground
 		{
 		    isjumping=false;
 		    keys[number]=false;
