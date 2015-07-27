@@ -460,38 +460,30 @@ class GameState{
 		if(keys[3]==true){
 			person[0].showJump();
 			person[0].jump(3);
-			image(jumpButton2,90, 370);
 		}
 		else{
 			person[0].show();
-			image(jumpButton1,90, 370);
 		}
 		if(keys[2]==true){
 			person[1].showJump();
 			person[1].jump(2);
-			image(jumpButton2,220, 370);
 		}
 		else{
 			person[1].show();
-			image(jumpButton1,220, 370);
 		}
 		if(keys[1]==true){
 			person[2].showJump();
 			person[2].jump(1); 
-			image(jumpButton2,430, 370);
 		}
 		else{
 			person[2].show();
-			image(jumpButton1,430, 370);
 		}
 		if(keys[0]==true){
 			person[3].showJump();
 			person[3].jump(0); 
-			image(jumpButton2,560, 370);
 		}
 		else{
 			person[3].show();
-			image(jumpButton1,560, 370);
 		}
 		
 		//clicking the 'pause' button
@@ -511,28 +503,28 @@ class GameState{
 		rect(width-150, 320, 100, 100);*/
 		
 		if(mouseX>10 && mouseX<90+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,90, 370);
+			image(jumpButton2,90, 370,100,100);
 		}
 		else{
-			image(jumpButton1,90,370);
+			image(jumpButton1,90,370,100,100);
 		}
 		if(mouseX>220-60 && mouseX<220+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,220, 370);
+			image(jumpButton2,220, 370,100,100);
 		}
 		else{
-			image(jumpButton1,220,370);
+			image(jumpButton1,220,370,100,100);
 		}
 		if(mouseX>430-70 && mouseX<430+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,430, 370);
+			image(jumpButton2,430, 370,100,100);
 		}
 		else{
-			image(jumpButton1,430,370);
+			image(jumpButton1,430,370,100,100);
 		}
 		if(mouseX>560-70 && mouseX<560+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,560, 370);
+			image(jumpButton2,560, 370,100,100);
 		}
 		else{
-			image(jumpButton1,560,370);
+			image(jumpButton1,560,370,100,100);
 		}
 		
 	}
