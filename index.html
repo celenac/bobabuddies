@@ -440,18 +440,18 @@ class GameState{
 		text(score, width/2, 80);
 		
 		//score increasing
-		//console.log("trashcanX: "+trashcan.getX());
-		//console.log("personX: "+person[3].getX());
+		console.log("trashcanX: "+trashcan.getX());
+		console.log("personX: "+person[3].getX());
 		fill(255,0,0);
-		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed-1){
-			//console.log("add 10");
-			jumpSound.setTime(1);
+		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed){
+			console.log("1st add 10");
+			jumpSound.setTime(.03);
 			jumpSound.play();
 			score=score+10;
 		}
-		if(trashcan2.getX()<person[3].getX() && trashcan2.getX()>=person[3].getX()-gameSpeed-1){
-			//console.log("add 10");
-			jumpSound.setTime(1);
+		if(trashcan2.getX()<person[3].getX() && trashcan2.getX()>=person[3].getX()-gameSpeed){
+			console.log("2nd add 10");
+			jumpSound.setTime(.03);
 			jumpSound.play();
 			score=score+10;
 		}
@@ -724,44 +724,44 @@ void keyPressed(){
 
 void gameEnd(){
 	//if any of the buddies touching the 1st trashcan
-	if(person[0].getX()>=trashcan.getX()-10 && person[0].getX()<=trashcan.getX()+15 && person[0].getY()>=trashcan.getY()-15 && person[0].getY()<=trashcan.getY()+15){
+	if(person[0].getX()>=trashcan.getX()-25 && person[0].getX()<=trashcan.getX()+35 && person[0].getY()>=trashcan.getY()-15 && person[0].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
-	if(person[1].getX()>=trashcan.getX()-10 && person[1].getX()<=trashcan.getX()+15 && person[1].getY()>=trashcan.getY()-15 && person[1].getY()<=trashcan.getY()+15){
+	if(person[1].getX()>=trashcan.getX()-25 && person[1].getX()<=trashcan.getX()+35 && person[1].getY()>=trashcan.getY()-15 && person[1].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
-	if(person[2].getX()>=trashcan.getX()-10 && person[2].getX()<=trashcan.getX()+15 && person[2].getY()>=trashcan.getY()-15 && person[2].getY()<=trashcan.getY()+15){
+	if(person[2].getX()>=trashcan.getX()-25 && person[2].getX()<=trashcan.getX()+35 && person[2].getY()>=trashcan.getY()-15 && person[2].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
-	if(person[3].getX()>=trashcan.getX()-10 && person[3].getX()<=trashcan.getX()+15 && person[3].getY()>=trashcan.getY()-15 && person[3].getY()<=trashcan.getY()+15){
+	if(person[3].getX()>=trashcan.getX()-25 && person[3].getX()<=trashcan.getX()+35 && person[3].getY()>=trashcan.getY()-15 && person[3].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	
 	//if any of the buddies touching the 2nd trashcan
-	if(person[0].getX()>=trashcan2.getX()-10 && person[0].getX()<=trashcan2.getX()+15 && person[0].getY()>=trashcan2.getY()-15 && person[0].getY()<=trashcan2.getY()+15){
+	if(person[0].getX()>=trashcan2.getX()-25 && person[0].getX()<=trashcan2.getX()+35 && person[0].getY()>=trashcan2.getY()-15 && person[0].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
 	}
-	if(person[1].getX()>=trashcan2.getX()-10 && person[1].getX()<=trashcan2.getX()+15 && person[1].getY()>=trashcan2.getY()-15 && person[1].getY()<=trashcan2.getY()+15){
+	if(person[1].getX()>=trashcan2.getX()-25 && person[1].getX()<=trashcan2.getX()+35 && person[1].getY()>=trashcan2.getY()-15 && person[1].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
 	}
-	if(person[2].getX()>=trashcan2.getX()-10 && person[2].getX()<=trashcan2.getX()+15 && person[2].getY()>=trashcan2.getY()-15 && person[2].getY()<=trashcan2.getY()+15){
+	if(person[2].getX()>=trashcan2.getX()-25 && person[2].getX()<=trashcan2.getX()+35 && person[2].getY()>=trashcan2.getY()-15 && person[2].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
 	}
-	if(person[3].getX()>=trashcan2.getX()-10 && person[3].getX()<=trashcan2.getX()+15 && person[3].getY()>=trashcan2.getY()-15 && person[3].getY()<=trashcan2.getY()+15){
+	if(person[3].getX()>=trashcan2.getX()-25 && person[3].getX()<=trashcan2.getX()+35 && person[3].getY()>=trashcan2.getY()-15 && person[3].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
