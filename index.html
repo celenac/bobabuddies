@@ -75,7 +75,7 @@ PFont gameFont;
 var jumpSound = new buzz.sound("jumpSound.wav");
 var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
 var buttonSound = new buzz.sound ("buttonClickSound.mp3");
-var buttonSound2=new buzz.sound ("buttonClickSound2.mp3");
+var buttonSound2= new buzz.sound ("buttonClickSound2.mp3");
 var homeMusic= new buzz.sound ("homepageSound.mp3");
 	
 //allows playing with buzz API
@@ -83,7 +83,6 @@ void playWithLoop(soundToPlay) {
 	soundToPlay.play();
 	soundToPlay.loop();
 }
-
 
 void setup(){
 	size(650,450, P2D);
@@ -175,7 +174,7 @@ void draw(){
 void mouseClicked(){
 	//changing states
 	if(mouseX>width/2-255 && mouseX<width/2-5 && mouseY>265 && mouseY<415 && state.page==0){ //if 'start' is pressed
-		buttonSound.play();
+		buttonSound2.play();
 		homeMusic.stop();
 		state.page=2; //go to game
 	}
@@ -190,7 +189,7 @@ void mouseClicked(){
 		backgroundSound.unmute();
 	}
 	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>300-25 && mouseY<300+25 && state.page==0){ //if 'how to play' is pressed
-		buttonSound.play();
+		buttonSound2.play();
 		state.page=1; //go to instructions
 	}
 	else if(mouseX>0 && mouseX<100 && mouseY>0 && mouseY<50 && state.page==1){ //if 'back' button pressed in how to play
@@ -198,7 +197,7 @@ void mouseClicked(){
 		state.page=0;
 	}
 	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>380-25 && mouseY<380+25 && state.page==0) {//if 'credits' is pressed
-		buttonSound.play();
+		buttonSound2.play();
 		state.page=5;
 	}
 	else if(mouseX>width/2-40 && mouseX<width/2+40 && mouseY>400-20 && mouseY<400+20 && state.page==5){ //if 'back' is pressed in the credits 
@@ -206,12 +205,12 @@ void mouseClicked(){
 		state.page=0;
 	}
 	else if(mouseX>(width/2-100) && mouseX<(width/2+100) && mouseY>290 && mouseY<340 && state.page==3){ //if 'main menu' button pressed
-		buttonSound.play();
+		buttonSound2.play();
 		state.page=0;
 	}
 	else if(mouseX>(width/2-100) && mouseX<(width/2+100) && mouseY>360 && mouseY<410 && state.page==3){ //if 'try again' button pressed
 		console.log(person[1].getY());
-		buttonSound.play();
+		buttonSound2.play();
 		score=0;
 		//restartGame();
 		gameSpeed=3;
@@ -302,9 +301,7 @@ class GameState{
 		score=0;
 		gameSpeed=3;
 		textFont(gameFont,35);
-		//playWithLoop(homeMusic);
-		homeMusic.play();
-		homeMusic.loop();
+		playWithLoop(homeMusic);
 		if(counter%20<=10){
 			image(homepage1,width/2,height/2); //background for the page
 				//mouse hovers start button
@@ -425,9 +422,7 @@ class GameState{
 	}
 	
 	void startGame(){
-		//playWithLoop(backgroundSound);
-		backgroundSound.play();
-		backgroundSound.loop();
+		playWithLoop(backgroundSound);
 		background(145, 181, 255);
 		skyline.show();
 		skyline.move();
