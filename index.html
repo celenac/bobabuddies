@@ -249,6 +249,12 @@ class GameState{
 	PImage pause;
 	PImage jumpButton1;
 	PImage jumpButton2;
+	PImage jumpButton3;
+	PImage jumpButton4;
+	PImage jumpButton1p;
+	PImage jumpButton2p;
+	PImage jumpButton3p;
+	PImage jumpButton4p;
 	GameState(p){
 		page=p;
 		homepage1=loadImage("backgrounds/home1.png");
@@ -261,8 +267,14 @@ class GameState{
 		credits=loadImage("backgrounds/credits.png");
 		gameover=loadImage("backgrounds/gameOver.png");
 		pause=loadImage("backgrounds/pause.png");
-		jumpButton1=loadImage("otherimages/jumpButton.png");
-		jumpButton2=loadImage("otherimages/jumpButton2.png");
+		jumpButton1=loadImage("otherimages/jumpButton-1.png");
+		jumpButton2=loadImage("otherimages/jumpButton-2.png");
+		jumpButton3=loadImage("otherimages/jumpButton-3.png");
+		jumpButton4=loadImage("otherimages/jumpButton-4.png");
+		jumpButton1p=loadImage("otherimages/jumpButton-1-2.png");
+		jumpButton2p=loadImage("otherimages/jumpButton-2-2.png");
+		jumpButton3p=loadImage("otherimages/jumpButton-3-2.png");
+		jumpButton4p=loadImage("otherimages/jumpButton-4-2.png");
 	}
 	
 	void show(){
@@ -460,30 +472,38 @@ class GameState{
 		if(keys[3]==true){
 			person[0].showJump();
 			person[0].jump(3);
+			image(jumpButton1p,560, 375,100,100);
 		}
 		else{
 			person[0].show();
+			image(jumpButton1,560, 375,100,100);
 		}
 		if(keys[2]==true){
 			person[1].showJump();
 			person[1].jump(2);
+			image(jumpButton2p,430, 375,100,100);
 		}
 		else{
 			person[1].show();
+			image(jumpButton2,430, 375,100,100);
 		}
 		if(keys[1]==true){
 			person[2].showJump();
 			person[2].jump(1); 
+			image(jumpButton3p,220, 375,100,100);
 		}
 		else{
 			person[2].show();
+			image(jumpButton3,220, 375,100,100);
 		}
 		if(keys[0]==true){
 			person[3].showJump();
 			person[3].jump(0); 
+			image(jumpButton4p,90, 375,100,100);
 		}
 		else{
 			person[3].show();
+			image(jumpButton4,90, 375,100,100);
 		}
 		
 		//clicking the 'pause' button
@@ -501,31 +521,31 @@ class GameState{
 		rect(170, 320, 100,100);
 		rect(width-270, 320,100,100);
 		rect(width-150, 320, 100, 100);*/
-		
+		/*
 		if(mouseX>10 && mouseX<90+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,90, 370,100,100);
+			image(jumpButton4p,90, 370,100,100);
 		}
 		else{
-			image(jumpButton1,90,370,100,100);
+			image(jumpButton4,90,370,100,100);
 		}
 		if(mouseX>220-60 && mouseX<220+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,220, 370,100,100);
+			image(jumpButton3p,220, 370,100,100);
 		}
 		else{
-			image(jumpButton1,220,370,100,100);
+			image(jumpButton3,220,370,100,100);
 		}
 		if(mouseX>430-70 && mouseX<430+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,430, 370,100,100);
+			image(jumpButton2p,430, 370,100,100);
 		}
 		else{
-			image(jumpButton1,430,370,100,100);
+			image(jumpButton2,430,370,100,100);
 		}
 		if(mouseX>560-70 && mouseX<560+70 && mouseY>300 && mouseY<440){
-			image(jumpButton2,560, 370,100,100);
+			image(jumpButton1p,560, 370,100,100);
 		}
 		else{
 			image(jumpButton1,560,370,100,100);
-		}
+		}*/
 		
 	}
 	
