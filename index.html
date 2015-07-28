@@ -74,8 +74,8 @@ PFont gameFont;
 var jumpSound = new buzz.sound("jumpSound.wav");
 var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
 var buttonSound = new buzz.sound ("buttonClickSound.mp3");
+var buttonSound2=new buzz.sound ("buttonClickSound2.mp3");
 var homeMusic= new buzz.sound ("homepageSound.mp3");
-var blank=new buzz.sound ("2secblank.mp3");
 var hover=new buzz.sound("hoverSound.mp3");
 var scoreSound=new buzz.sound("scoreSound.mp3");
 	
@@ -98,7 +98,8 @@ void setup(){
 	backgroundSound.setVolume(15);
 	homeMusic.setVolume(20);
 	jumpSound.setVolume(20);
-	buttonSound.setVolume(100);
+	buttonSound.setVolume(45);
+	buttonSound2.setVolume(45);
 
 	//boba buddies' images
 	bobagirl1=loadImage("characters/bobagirl1-1.png");
@@ -180,10 +181,12 @@ void mouseClicked(){
 		state.page=2; //go to game
 	}
 	else if (homeMusic.isMuted()==false && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is unmuted
+		buttonSound2.play();
 		homeMusic.mute();
 		backgroundSound.mute();
 	}
 	else if (homeMusic.isMuted()==true && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is muted
+		buttonSound2.play();
 		homeMusic.unmute();
 		backgroundSound.unmute();
 	}
@@ -192,7 +195,7 @@ void mouseClicked(){
 		state.page=1; //go to instructions
 	}
 	else if(mouseX>0 && mouseX<100 && mouseY>0 && mouseY<50 && state.page==1){ //if 'back' button pressed in how to play
-		buttonSound.play();
+		buttonSound2.play();
 		state.page=0;
 	}
 	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>380-25 && mouseY<380+25 && state.page==0) {//if 'credits' is pressed
@@ -200,13 +203,11 @@ void mouseClicked(){
 		state.page=5;
 	}
 	else if(mouseX>width/2-40 && mouseX<width/2+40 && mouseY>400-20 && mouseY<400+20 && state.page==5){ //if 'back' is pressed in the credits 
-		buttonSound.play();
+		buttonSound2.play();
 		state.page=0;
 	}
 	else if(mouseX>(width/2-100) && mouseX<(width/2+100) && mouseY>290 && mouseY<340 && state.page==3){ //if 'main menu' button pressed
 		buttonSound.play();
-		console.log("working");
-		//restartGame();
 		state.page=0;
 	}
 	else if(mouseX>(width/2-100) && mouseX<(width/2+100) && mouseY>360 && mouseY<410 && state.page==3){ //if 'try again' button pressed
@@ -218,11 +219,11 @@ void mouseClicked(){
 		state.page=2;
 	}
 	else if(mouseX>(width/2)-70 && mouseX<width && mouseY>0 && mouseY<50 && state.page==2){ //if 'pause' button pressed
-		buttonSound.play();
+		buttonSound2.play();
 		state.page=4;
 	}
 	else if(mouseX>(width/2-90) && mouseX<(width/2-90+150) && mouseY>250-30 && mouseY<250+20 && state.page==4){
-		buttonSound.play();
+		buttonSound2.play();
 		backgroundSound.play();
 		state.page=2;//go back to game
 	}
@@ -472,38 +473,38 @@ class GameState{
 		if(keys[3]==true){
 			person[0].showJump();
 			person[0].jump(3);
-			image(jumpButton1p,560, 375,100,100);
+			image(jumpButton4p,560, 375,100,100);
 		}
 		else{
 			person[0].show();
-			image(jumpButton1,560, 375,100,100);
+			image(jumpButton4,560, 375,100,100);
 		}
 		if(keys[2]==true){
 			person[1].showJump();
 			person[1].jump(2);
-			image(jumpButton2p,430, 375,100,100);
+			image(jumpButton3p,430, 375,100,100);
 		}
 		else{
 			person[1].show();
-			image(jumpButton2,430, 375,100,100);
+			image(jumpButton3,430, 375,100,100);
 		}
 		if(keys[1]==true){
 			person[2].showJump();
 			person[2].jump(1); 
-			image(jumpButton3p,220, 375,100,100);
+			image(jumpButton2p,220, 375,100,100);
 		}
 		else{
 			person[2].show();
-			image(jumpButton3,220, 375,100,100);
+			image(jumpButton2,220, 375,100,100);
 		}
 		if(keys[0]==true){
 			person[3].showJump();
 			person[3].jump(0); 
-			image(jumpButton4p,90, 375,100,100);
+			image(jumpButton1p,90, 375,100,100);
 		}
 		else{
 			person[3].show();
-			image(jumpButton4,90, 375,100,100);
+			image(jumpButton1,90, 375,100,100);
 		}
 		
 		//clicking the 'pause' button
@@ -744,44 +745,44 @@ void keyPressed(){
 
 void gameEnd(){
 	//if any of the buddies touching the 1st trashcan
-	if(person[0].getX()>=trashcan.getX()-25 && person[0].getX()<=trashcan.getX()+35 && person[0].getY()>=trashcan.getY()-15 && person[0].getY()<=trashcan.getY()+15){
+	if(person[0].getX()>=trashcan.getX()-25 && person[0].getX()<=trashcan.getX()+30 && person[0].getY()>=trashcan.getY()-15 && person[0].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
-	if(person[1].getX()>=trashcan.getX()-25 && person[1].getX()<=trashcan.getX()+35 && person[1].getY()>=trashcan.getY()-15 && person[1].getY()<=trashcan.getY()+15){
+	if(person[1].getX()>=trashcan.getX()-25 && person[1].getX()<=trashcan.getX()+30 && person[1].getY()>=trashcan.getY()-15 && person[1].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
-	if(person[2].getX()>=trashcan.getX()-25 && person[2].getX()<=trashcan.getX()+35 && person[2].getY()>=trashcan.getY()-15 && person[2].getY()<=trashcan.getY()+15){
+	if(person[2].getX()>=trashcan.getX()-25 && person[2].getX()<=trashcan.getX()+30 && person[2].getY()>=trashcan.getY()-15 && person[2].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
-	if(person[3].getX()>=trashcan.getX()-25 && person[3].getX()<=trashcan.getX()+35 && person[3].getY()>=trashcan.getY()-15 && person[3].getY()<=trashcan.getY()+15){
+	if(person[3].getX()>=trashcan.getX()-25 && person[3].getX()<=trashcan.getX()+30 && person[3].getY()>=trashcan.getY()-15 && person[3].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	
 	//if any of the buddies touching the 2nd trashcan
-	if(person[0].getX()>=trashcan2.getX()-25 && person[0].getX()<=trashcan2.getX()+35 && person[0].getY()>=trashcan2.getY()-15 && person[0].getY()<=trashcan2.getY()+15){
+	if(person[0].getX()>=trashcan2.getX()-25 && person[0].getX()<=trashcan2.getX()+30 && person[0].getY()>=trashcan2.getY()-15 && person[0].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
 	}
-	if(person[1].getX()>=trashcan2.getX()-25 && person[1].getX()<=trashcan2.getX()+35 && person[1].getY()>=trashcan2.getY()-15 && person[1].getY()<=trashcan2.getY()+15){
+	if(person[1].getX()>=trashcan2.getX()-25 && person[1].getX()<=trashcan2.getX()+30 && person[1].getY()>=trashcan2.getY()-15 && person[1].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
 	}
-	if(person[2].getX()>=trashcan2.getX()-25 && person[2].getX()<=trashcan2.getX()+35 && person[2].getY()>=trashcan2.getY()-15 && person[2].getY()<=trashcan2.getY()+15){
+	if(person[2].getX()>=trashcan2.getX()-25 && person[2].getX()<=trashcan2.getX()+30 && person[2].getY()>=trashcan2.getY()-15 && person[2].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
 	}
-	if(person[3].getX()>=trashcan2.getX()-25 && person[3].getX()<=trashcan2.getX()+35 && person[3].getY()>=trashcan2.getY()-15 && person[3].getY()<=trashcan2.getY()+15){
+	if(person[3].getX()>=trashcan2.getX()-25 && person[3].getX()<=trashcan2.getX()+30 && person[3].getY()>=trashcan2.getY()-15 && person[3].getY()<=trashcan2.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
 		trashcan2.setX(randomTrashX+random(350,700));
