@@ -1178,7 +1178,7 @@ h2.pageHeading {
 	text-transform: uppercase;
 	font-size: 35px;
 	margin: auto;
-	padding:50px;
+	padding:10px;
 	
 }
 
@@ -1201,7 +1201,7 @@ p.pageFont {
 	font-family: Montserrat;
 	font-size: 15px;
 	text-align: center;
-	padding-bottom: 300px;
+	padding:10px;
 }
 
 footer {
@@ -1210,9 +1210,7 @@ footer {
 	background-position: center bottom;
 }
 
-#pad {
-	padding-bottom: 300px;
-}
+
 
 
 /* CHARACTER PAGE ONLY */
@@ -1287,7 +1285,6 @@ p.maggieDescription {
 	font-size: 15px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-bottom: 300px;
 	width: 350px;
 }
 
@@ -1296,7 +1293,6 @@ p.celenaDescription {
 	font-size: 15px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-bottom: 300px;
 	width: 350px;
 }
 
