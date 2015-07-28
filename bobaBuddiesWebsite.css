@@ -1113,6 +1113,15 @@
 /*CSS of the html*/
 
 /* ALL PAGES */
+a{
+	color:#9A9A9A;
+	text-decoration: none;
+}
+
+a:hover{
+	color:#D7D7D7;
+}
+
 body {
 	/*background-color: #E3D69A;*/
 	background-color: white;
