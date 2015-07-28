@@ -74,9 +74,9 @@ PFont gameFont;
 //declares all of the sounds
 var jumpSound = new buzz.sound("jumpSound.wav");
 var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
+var homeMusic= new buzz.sound ("homepageSound.mp3");
 var buttonSound = new buzz.sound ("buttonClickSound.mp3");
 var buttonSound2= new buzz.sound ("buttonClickSound2.mp3");
-var homeMusic= new buzz.sound ("homepageSound.mp3");
 	
 //allows playing with buzz API
 void playWithLoop(soundToPlay) {
@@ -93,11 +93,11 @@ void setup(){
 	
 	score=0;
 	
+	buttonSound.setVolume(45);
+	buttonSound2.setVolume(45);
 	backgroundSound.setVolume(15);
 	homeMusic.setVolume(20);
 	jumpSound.setVolume(20);
-	buttonSound.setVolume(45);
-	buttonSound2.setVolume(45);
 
 	//boba buddies' images
 	bobagirl1=loadImage("characters/bobagirl1-1.png");
