@@ -77,8 +77,6 @@ var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
 var buttonSound = new buzz.sound ("buttonClickSound.mp3");
 var buttonSound2=new buzz.sound ("buttonClickSound2.mp3");
 var homeMusic= new buzz.sound ("homepageSound.mp3");
-var hover=new buzz.sound("hoverSound.mp3");
-var scoreSound=new buzz.sound("scoreSound.mp3");
 	
 //allows playing with buzz API
 void playWithLoop(soundToPlay) {
@@ -363,8 +361,6 @@ class GameState{
 				//speaker icon for muting music
 			if(homeMusic.isMuted()){
 				image(mute,30,20,50,36);
-
-
 			}
 			else{
 				image(unmute,30,20,50,36);
