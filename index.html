@@ -302,7 +302,9 @@ class GameState{
 		score=0;
 		gameSpeed=3;
 		textFont(gameFont,35);
-		playWithLoop(homeMusic);
+		//playWithLoop(homeMusic);
+		homeMusic.play();
+		homeMusic.loop();
 		if(counter%20<=10){
 			image(homepage1,width/2,height/2); //background for the page
 				//mouse hovers start button
@@ -423,7 +425,9 @@ class GameState{
 	}
 	
 	void startGame(){
-		playWithLoop(backgroundSound);
+		//playWithLoop(backgroundSound);
+		backgroundSound.play();
+		backgroundSound.loop();
 		background(145, 181, 255);
 		skyline.show();
 		skyline.move();
