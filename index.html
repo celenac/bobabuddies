@@ -72,7 +72,7 @@ PImage tryagain2;
 PFont gameFont;
 
 //declares all of the sounds
-var buttonSound = new buzz.sound ("buttonClickSound.mp3");
+//var buttonSound = new buzz.sound ("buttonClickSound.mp3");
 var buttonSound2 = new buzz.sound ("buttonClickSound2.mp3");
 var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
 var homeMusic= new buzz.sound ("homepageSound.mp3");
@@ -93,7 +93,7 @@ void setup(){
 	
 	score=0;
 	
-	buttonSound.setVolume(45);
+	//buttonSound.setVolume(45);
 	buttonSound2.setVolume(45);
 	backgroundSound.setVolume(15);
 	homeMusic.setVolume(20);
@@ -454,13 +454,13 @@ class GameState{
 		fill(255,0,0);
 		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed){
 			console.log("1st add 10");
-			//jumpSound.setTime(.03);
+			jumpSound.setTime(.03);
 			jumpSound.play();
 			score=score+10;
 		}
 		if(trashcan2.getX()<person[3].getX() && trashcan2.getX()>=person[3].getX()-gameSpeed){
 			console.log("2nd add 10");
-			//jumpSound.setTime(.03);
+			jumpSound.setTime(.03);
 			jumpSound.play();
 			score=score+10;
 		}
@@ -702,7 +702,7 @@ class Person{
 	void jump(number){
 		if(isjumping==false && keys[number]==true)
 		{
-			//jumpSound.setTime(0.1);
+			jumpSound.setTime(0.1);
 			jumpSound.play();
 		    isjumping=true;
 		    yinc=15;
