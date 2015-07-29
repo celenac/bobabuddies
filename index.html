@@ -75,7 +75,7 @@ PFont gameFont;
 var buttonSound = new buzz.sound ("buttonClickSound.mp3");
 var buttonSound2 = new buzz.sound ("buttonClickSound2.mp3");
 var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
-//var homeMusic= new buzz.sound ("homepageSound.mp3");
+var homeMusic= new buzz.sound ("homepageSound.mp3");
 var jumpSound = new buzz.sound("jumpSound.wav");
 	
 //allows playing with buzz API
@@ -96,7 +96,7 @@ void setup(){
 	buttonSound.setVolume(45);
 	buttonSound2.setVolume(45);
 	backgroundSound.setVolume(15);
-	//homeMusic.setVolume(20);
+	homeMusic.setVolume(20);
 	jumpSound.setVolume(20);
 
 	//boba buddies' images
@@ -175,10 +175,10 @@ void mouseClicked(){
 	//changing states
 	if(mouseX>width/2-255 && mouseX<width/2-5 && mouseY>265 && mouseY<415 && state.page==0){ //if 'start' is pressed
 		buttonSound2.play();
-		//homeMusic.stop();
+		homeMusic.stop();
 		state.page=2; //go to game
 	}
-	/*else if (homeMusic.isMuted()==false && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is unmuted
+	else if (homeMusic.isMuted()==false && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is unmuted
 		buttonSound2.play();
 		homeMusic.mute();
 		backgroundSound.mute();
@@ -187,7 +187,7 @@ void mouseClicked(){
 		buttonSound2.play();
 		homeMusic.unmute();
 		backgroundSound.unmute();
-	}*/
+	}
 	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>300-25 && mouseY<300+25 && state.page==0){ //if 'how to play' is pressed
 		buttonSound2.play();
 		state.page=1; //go to instructions
@@ -299,7 +299,7 @@ class GameState{
 		score=0;
 		gameSpeed=3;
 		textFont(gameFont,35);
-		//playWithLoop(homeMusic);
+		playWithLoop(homeMusic);
 		if(counter%20<=10){
 			image(homepage1,width/2,height/2); //background for the page
 				//mouse hovers start button
@@ -324,13 +324,13 @@ class GameState{
 				image(credits1,width/2+150, 380);
 			}
 				//speaker icon for muting music
-			/*if(homeMusic.isMuted()){
+			if(homeMusic.isMuted()){
 				image(mute,30,20,50,36);
 
 			}
 			else{
 				image(unmute,30,20,50,36);
-			}*/
+			}
 		}
 		else{
 			image(homepage2,width/2,height/2);
@@ -356,12 +356,12 @@ class GameState{
 				image(credits1,width/2+150, 380);
 			}
 				//speaker icon for muting music
-			/*if(homeMusic.isMuted()){
+			if(homeMusic.isMuted()){
 				image(mute,30,20,50,36);
 			}
 			else{
 				image(unmute,30,20,50,36);
-			}*/
+			}
 		}
 	}
 	
