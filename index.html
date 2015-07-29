@@ -454,13 +454,13 @@ class GameState{
 		fill(255,0,0);
 		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed){
 			console.log("1st add 10");
-			jumpSound.setTime(.03);
+			//jumpSound.setTime(.03);
 			jumpSound.play();
 			score=score+10;
 		}
 		if(trashcan2.getX()<person[3].getX() && trashcan2.getX()>=person[3].getX()-gameSpeed){
 			console.log("2nd add 10");
-			jumpSound.setTime(.03);
+			//jumpSound.setTime(.03);
 			jumpSound.play();
 			score=score+10;
 		}
@@ -702,7 +702,7 @@ class Person{
 	void jump(number){
 		if(isjumping==false && keys[number]==true)
 		{
-			jumpSound.setTime(0.1);
+			//jumpSound.setTime(0.1);
 			jumpSound.play();
 		    isjumping=true;
 		    yinc=15;
