@@ -73,7 +73,7 @@ PFont gameFont;
 
 //declares all of the sounds
 //var buttonSound = new buzz.sound ("buttonClickSound.mp3");
-var buttonSound2 = new buzz.sound ("buttonClickSound2.mp3");
+//var buttonSound2 = new buzz.sound ("buttonClickSound2.mp3");
 var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
 var homeMusic= new buzz.sound ("homepageSound.mp3");
 var jumpSound = new buzz.sound("jumpSound.wav");
@@ -94,7 +94,7 @@ void setup(){
 	score=0;
 	
 	//buttonSound.setVolume(45);
-	buttonSound2.setVolume(45);
+	//buttonSound2.setVolume(45);
 	backgroundSound.setVolume(15);
 	homeMusic.setVolume(20);
 	jumpSound.setVolume(20);
@@ -174,54 +174,54 @@ void draw(){
 void mouseClicked(){
 	//changing states
 	if(mouseX>width/2-255 && mouseX<width/2-5 && mouseY>265 && mouseY<415 && state.page==0){ //if 'start' is pressed
-		buttonSound2.play();
+		//buttonSound2.play();
 		homeMusic.stop();
 		state.page=2; //go to game
 	}
 	else if (homeMusic.isMuted()==false && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is unmuted
-		buttonSound2.play();
+		//buttonSound2.play();
 		homeMusic.mute();
 		backgroundSound.mute();
 	}
 	else if (homeMusic.isMuted()==true && mouseX>5 && mouseX<50 && mouseY>5 && mouseY<35 && state.page==0){ //if speaker for music button is pressed and speaker is muted
-		buttonSound2.play();
+		//buttonSound2.play();
 		homeMusic.unmute();
 		backgroundSound.unmute();
 	}
 	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>300-25 && mouseY<300+25 && state.page==0){ //if 'how to play' is pressed
-		buttonSound2.play();
+		//buttonSound2.play();
 		state.page=1; //go to instructions
 	}
 	else if(mouseX>0 && mouseX<100 && mouseY>0 && mouseY<50 && state.page==1){ //if 'back' button pressed in how to play
-		buttonSound2.play();
+		//buttonSound2.play();
 		state.page=0;
 	}
 	else if(mouseX>width/2-20 && mouseX<width/2+300 && mouseY>380-25 && mouseY<380+25 && state.page==0) {//if 'credits' is pressed
-		buttonSound2.play();
+		//buttonSound2.play();
 		state.page=5;
 	}
 	else if(mouseX>width/2-40 && mouseX<width/2+40 && mouseY>400-20 && mouseY<400+20 && state.page==5){ //if 'back' is pressed in the credits 
-		buttonSound2.play();
+		//buttonSound2.play();
 		state.page=0;
 	}
 	else if(mouseX>(width/2-100) && mouseX<(width/2+100) && mouseY>290 && mouseY<340 && state.page==3){ //if 'main menu' button pressed
-		buttonSound2.play();
+		//buttonSound2.play();
 		state.page=0;
 	}
 	else if(mouseX>(width/2-100) && mouseX<(width/2+100) && mouseY>360 && mouseY<410 && state.page==3){ //if 'try again' button pressed
 		console.log(person[1].getY());
-		buttonSound2.play();
+		//buttonSound2.play();
 		score=0;
 		//restartGame();
 		gameSpeed=3;
 		state.page=2;
 	}
 	else if(mouseX>(width/2)-70 && mouseX<width && mouseY>0 && mouseY<50 && state.page==2){ //if 'pause' button pressed
-		buttonSound2.play();
+		//buttonSound2.play();
 		state.page=4;
 	}
 	else if(mouseX>(width/2-90) && mouseX<(width/2-90+150) && mouseY>250-30 && mouseY<250+20 && state.page==4){
-		buttonSound2.play();
+		//buttonSound2.play();
 		backgroundSound.play();
 		state.page=2;//go back to game
 	}
