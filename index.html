@@ -447,8 +447,6 @@ class GameState{
 		text(score, width/2, 80);
 		
 		//score increasing
-		console.log("trashcanX: "+trashcan.getX());
-		console.log("personX: "+person[3].getX());
 		fill(255,0,0);
 		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed){
 			console.log("1st add 10");
@@ -778,6 +776,9 @@ void gameEnd(){
 		<h2 class="pageHeading" style="padding-top:50px; font-size:30px;">PLAYING ON MOBILE</h2>
 		<p class="pageFont" style="width:60%; margin:auto;">
 			Hold your mobile device horizontally.
+		</p>
+		<p class="pageFont" style="width:60%; margin:auto;">
+			Music might not work on mobile.
 		</p>
 	</div>
 </body>
