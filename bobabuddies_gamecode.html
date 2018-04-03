@@ -15,9 +15,9 @@
 
 /*USED http://www.iwebtool.com/html_encrypter TO ENCRYPT THE CODE!!!!*/
 
- /* @pjs preload="backgrounds/home1.png, backgrounds/home2.png, backgrounds/instructionsPage0000.png, backgrounds/instructionsPage0001.png, backgrounds/instructionsPage0002.png, backgrounds/instructionsPage0003.png, backgrounds/instructionsPage0004.png, characters/bobaboy1-1.png, characters/bobaboy1-2.png, characters/bobaboy1-jumping.png, characters/bobaboy2-1.png, characters/bobaboy2-2.png, characters/bobaboy2-jumping.png, characters/bobagirl1-1.png, characters/bobagirl1-2.png, characters/bobagirl1-jumping.png, characters/bobagirl2-1.png, characters/bobagirl2-2.png, characters/bobagirl2-jumping.png, backgrounds/gameOver.png, backgrounds/pause.png, otherimages/sidewalk.png, otherimages/sidewalk2.png, otherimages/skyline.png, otherimages/skyline2.png, otherimages/trashcan3.png, otherimages/trashcan4.png, buttons/backButton.png, buttons/backButton2.png, buttons/creditsButton.png, buttons/creditsButton2.png, buttons/howtoplayButton.png, buttons/howtoplayButton2.png, buttons/mainmenuButton.png, buttons/mainmenuButton2.png, buttons/pauseButton.png, buttons/pauseButton2.png, buttons/resumeButton.png, buttons/resumeButton2.png, buttons/startButton.png, buttons/startButton2.png, buttons/tryagainButton.png, buttons/tryagainButton2.png"; */
+ /* @pjs preload="backgrounds/home1.png, backgrounds/home2.png, backgrounds/instructionsPage0000.png, backgrounds/instructionsPage0001.png, backgrounds/instructionsPage0002.png, backgrounds/instructionsPage0003.png, backgrounds/instructionsPage0004.png, characters/bobaboy1-1.png, characters/bobaboy1-2.png, characters/bobaboy1-jumping.png, characters/bobaboy2-1.png, characters/bobaboy2-2.png, characters/bobaboy2-jumping.png, characters/bobagirl1-1.png, characters/bobagirl1-2.png, characters/bobagirl1-jumping.png, characters/bobagirl2-1.png, characters/bobagirl2-2.png, characters/bobagirl2-jumping.png, backgrounds/gameOver.png, backgrounds/pause.png, otherimages/sidewalk.png, otherimages/sidewalk2.png, otherimages/skyline.png, otherimages/skyline2.png, otherimages/trashcan3.png, otherimages/trashcan4.png, buttons/backButton.png, buttons/backButton2.png, buttons/creditsButton.png, buttons/creditsButton2.png, buttons/howtoplayButton.png, buttons/howtoplayButton2.png, buttons/mainmenuButton.png, buttons/mainmenuButton2.png, buttons/pauseButton.png, buttons/pauseButton2.png, buttons/resumeButton.png, buttons/resumeButton2.png, buttons/startButton.png, buttons/startButton2.png, buttons/tryagainButton.png, buttons/tryagainButton2.png"; */ 
 //objects
-var person[]=new var [4];
+var person[]=new var [4]; 
 var skyline;
 var ground;
 var trashcan;
@@ -80,7 +80,7 @@ var buttonSound2 = new buzz.sound ("buttonClickSound2.mp3");
 var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
 var homeMusic= new buzz.sound ("homepageSound.mp3");
 var jumpSound = new buzz.sound("jumpSound.wav");
-
+	
 //allows playing with buzz API
 void playWithLoop(soundToPlay) {
 	soundToPlay.play();
@@ -89,13 +89,13 @@ void playWithLoop(soundToPlay) {
 
 void setup(){
 	size(650,450, P2D);
-	imageMode(CENTER);
+	imageMode(CENTER); 
 	strokeWeight(4);
-
+	
 	state=new GameState(0); //set to homepage
-
+	
 	score=0;
-
+	
 	buttonSound.setVolume(45);
 	buttonSound2.setVolume(45);
 	backgroundSound.setVolume(15);
@@ -115,15 +115,15 @@ void setup(){
 	bobagirl2_jump=loadImage("characters/bobagirl2-jumping.png");
 	bobaboy1_jump=loadImage("characters/bobaboy1-jumping.png");
 	bobaboy2_jump=loadImage("characters/bobaboy2-jumping.png");
-
+	
 	//street images
 	street1=loadImage("otherimages/sidewalk.png");
 	street2=loadImage("otherimages/sidewalk2.png");
-
+	
 	//two trashcans' images
 	trashcan=loadImage("otherimages/trashcan3.png");
 	trashcan2=loadImage("otherimages/trashcan4.png");
-
+	
 	//city background images
 	city1=loadImage("otherimages/skyline.png");
 	city2=loadImage("otherimages/skyline2.png");
@@ -149,9 +149,9 @@ void setup(){
 	//speaker icons
 	unmute=loadImage("otherimages/unmute.png");
 	mute=loadImage("otherimages/mute.png");
-
+	
 	gameFont=createFont("Impact");
-
+	
 	//initializing objects
 	person[0]=new Person(240, bobagirl1, bobagirl1_2, bobagirl1_jump);
 	person[1]=new Person(180, bobaboy1, bobaboy1_2, bobaboy1_jump);
@@ -161,7 +161,7 @@ void setup(){
 	trashcan=new Obstacle(trashcan, randomTrashX, 265);
 	trashcan2=new Obstacle(trashcan2, randomTrashX+random(350,700), 265);
 	skyline=new Scroller(city1,city2,1661,130,height-80, -1);
-
+	
 	//keys for controling boba buddies
 	keys[0]=false;
 	keys[1]=false;
@@ -203,7 +203,7 @@ void mouseClicked(){
 		buttonSound2.play();
 		state.page=5;
 	}
-	else if(mouseX>width/2-40 && mouseX<width/2+40 && mouseY>400-20 && mouseY<400+20 && state.page==5){ //if 'back' is pressed in the credits
+	else if(mouseX>width/2-40 && mouseX<width/2+40 && mouseY>400-20 && mouseY<400+20 && state.page==5){ //if 'back' is pressed in the credits 
 		buttonSound2.play();
 		state.page=0;
 	}
@@ -226,7 +226,7 @@ void mouseClicked(){
 		backgroundSound.play();
 		state.page=2;//go back to game
 	}
-
+	
 	//mobile buttons in game
 	if(mouseX>10 && mouseX<90+70 && mouseY>300 && mouseY<440){keys[0]=true;}
 	if(mouseX>220-60 && mouseX<220+70 && mouseY>300 && mouseY<440){keys[1]=true;}
@@ -276,7 +276,7 @@ class GameState{
 		jumpButton3p=loadImage("otherimages/jumpButton-3-2.png");
 		jumpButton4p=loadImage("otherimages/jumpButton-4-2.png");
 	}
-
+	
 	void show(){
 		if(page==0){
 			homePage();
@@ -297,7 +297,7 @@ class GameState{
 			creditsPage();
 		}
 	}
-
+	
 	void homePage(){
 		score=0;
 		gameSpeed=3;
@@ -367,7 +367,7 @@ class GameState{
 			}
 		}
 	}
-
+	
 	void instructions(){
 		textFont(gameFont,30);
 		if(counter%60>=50){
@@ -421,7 +421,7 @@ class GameState{
 			}
 		}
 	}
-
+	
 	void startGame(){
 		playWithLoop(backgroundSound);
 		background(145, 181, 255);
@@ -429,26 +429,26 @@ class GameState{
 		skyline.move();
 		ground.show();
 		ground.move();
-
+		
 		trashcan.show();
 		trashcan.move();
 		trashcan2.show();
 		trashcan2.move();
-
+	
 		//speeding up the game
 		if(counter%500==0){ //counter increases every 500th time the draw loop runs
 			gameSpeed++;
 		}
-		if(gameSpeed>=14){ //after speed gets to 10, it slows all the way day
+		if(gameSpeed>=14){ //after speed gets to 10, it slows all the way day 
 			gameSpeed=14;
 		}
-
+	
 		//score display
 		textAlign(CENTER);
 		fill(0);
 		textFont(gameFont,45);
 		text(score, width/2, 80);
-
+		
 		//score increasing
 		fill(255,0,0);
 		if(trashcan.getX()<person[3].getX() && trashcan.getX()>=person[3].getX()-gameSpeed){
@@ -463,7 +463,7 @@ class GameState{
 			jumpSound.play();
 			score=score+10;
 		}
-
+		
 		//key pressing for boba buddies
 		if(keys[3]==true){
 			person[0].showJump();
@@ -485,7 +485,7 @@ class GameState{
 		}
 		if(keys[1]==true){
 			person[2].showJump();
-			person[2].jump(1);
+			person[2].jump(1); 
 			image(jumpButton2p,220, 375,100,100);
 		}
 		else{
@@ -494,14 +494,14 @@ class GameState{
 		}
 		if(keys[0]==true){
 			person[3].showJump();
-			person[3].jump(0);
+			person[3].jump(0); 
 			image(jumpButton1p,90, 375,100,100);
 		}
 		else{
 			person[3].show();
 			image(jumpButton1,90, 375,100,100);
 		}
-
+		
 		//clicking the 'pause' button
 		if(mouseX>(width/2)-50 && mouseX<width && mouseY>0 && mouseY<50){
 			image(pause2,width-50,25);
@@ -510,7 +510,7 @@ class GameState{
 			image(pause1,width-50,25);
 		}
 	}
-
+	
 	void gameOver(){
 		fill(0);
 		backgroundSound.stop();
@@ -532,7 +532,7 @@ class GameState{
 			image(tryagain1, width/2,385);
 		}
 	}
-
+	
 	void pausePage(){
 		backgroundSound.pause(); //pauses background music
 		backgroundSound.pause();
@@ -576,17 +576,17 @@ class Scroller{
 		size=imageSizeY;
 		scrollSpeed=gameSpeed+speed;
 	}
-
+	
 	void show(){
 		image(pic1, x1, y,picWidth,size);
 		image(pic2, x2, y,picWidth,size);
 	}
-
+	
 	void move(){
 		x1=x1-scrollSpeed;
 		x2=x2-scrollSpeed;
 		//city scroller
-		if(x1+(picWidth)<=0){
+		if(x1+(picWidth)<=0){ 
 			x1=x2+(picWidth)-50;
 		}
 		if(x2+(picWidth)<=0){
@@ -608,31 +608,31 @@ class Obstacle{
 		sizeY=30;
 		pic=picture;
 	}
-
+	
 	void show(){
 		image(pic,x,y, 50,50);
 	}
-
+	
 	void move(){
 		x=x-gameSpeed;
 		if(x<random(-150,-50)){
 			x=random(width+100, width+400);
 		}
 	}
-
+	
 	public var getX(){ //used to make other functions have access to obstacle's x position
 		return x;
 	}
-
+	
 	public var getY(){ //used to make other functions have access to obstacle's y position
 		return y;
 	}
-
+	
 	public var setX(newX){ //used to give trashcans new x positions when game is restarted
 		x=newX;
 	}
 }
-
+ 
 class Person{
 	var x;
 	var y;
@@ -659,11 +659,11 @@ class Person{
 			image(pic2, x,y,80,80);
 		}
 	}
-
+	
 	void showJump(){
 		image(pic3,x,y,80,80);
 	}
-
+	
 	void jump(number){
 		if(isjumping==false && keys[number]==true)
 		{
@@ -673,9 +673,9 @@ class Person{
 		    yinc=15;
 		}
 		if(isjumping==true) //if character is jumping
-		{
+		{	
 		    y=y-yinc; //add thrust to current y position
-		    yinc=yinc-1;
+		    yinc=yinc-1; 
 		}
 		if(y>=260) //if character's y reaches the ground
 		{
@@ -683,15 +683,15 @@ class Person{
 		    keys[number]=false;
 		}
 	}
-
+	
 	public var getX(){
 		return x;
 	}
-
+	
 	public var getY(){
 		return y;
 	}
-
+	
 	public void setY(newY){
 		y=newY;
 	}
@@ -709,24 +709,24 @@ void gameEnd(){
 	if(person[0].getX()>=trashcan.getX()-25 && person[0].getX()<=trashcan.getX()+30 && person[0].getY()>=trashcan.getY()-15 && person[0].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
-		trashcan2.setX(randomTrashX+random(350,700));
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	if(person[1].getX()>=trashcan.getX()-25 && person[1].getX()<=trashcan.getX()+30 && person[1].getY()>=trashcan.getY()-15 && person[1].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
-		trashcan2.setX(randomTrashX+random(350,700));
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	if(person[2].getX()>=trashcan.getX()-25 && person[2].getX()<=trashcan.getX()+30 && person[2].getY()>=trashcan.getY()-15 && person[2].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
-		trashcan2.setX(randomTrashX+random(350,700));
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
 	if(person[3].getX()>=trashcan.getX()-25 && person[3].getX()<=trashcan.getX()+30 && person[3].getY()>=trashcan.getY()-15 && person[3].getY()<=trashcan.getY()+15){
 		state.page=3;
 		trashcan.setX(randomTrashX);
-		trashcan2.setX(randomTrashX+random(350,700));
+		trashcan2.setX(randomTrashX+random(350,700));	
 	}
-
+	
 	//if any of the buddies touching the 2nd trashcan
 	if(person[0].getX()>=trashcan2.getX()-25 && person[0].getX()<=trashcan2.getX()+30 && person[0].getY()>=trashcan2.getY()-15 && person[0].getY()<=trashcan2.getY()+15){
 		state.page=3;
@@ -770,12 +770,12 @@ void gameEnd(){
 		<p class="pageFont" style="width:60%; margin:auto;">
 			The Boba Buddies are on a mission to find the best boba shop in the city. It's up to you to get them there safely! Boba Buddies is a game created during the <a href="http://girlswhocode.com/" target="_blank">Girls Who Code Summer Immersion Program</a> in 2015. Girls Who Code is a national non-profit organization working to close the gender gap in the technology and engineering sectors.
 		</p>
-
+		
 		<h2 class="pageHeading" style="padding-top:50px; font-size:30px">PLAYING ON PC</h2>
 		<p class="pageFont" style="width:60%; margin:auto;">
 			Press the number keys on the keyboard.
 		</p>
-
+		
 		<h2 class="pageHeading" style="padding-top:50px; font-size:30px;">PLAYING ON MOBILE</h2>
 		<p class="pageFont" style="width:60%; margin:auto;">
 			Hold your mobile device horizontally.
@@ -785,11 +785,11 @@ void gameEnd(){
 		</p>
 	</div>
 
-
+	
 </body>
 
 <footer>
-	<p style="font-family: Montserrat;font-size: 15px; padding-top:150px;">Copyright 2017, Boba Buddies</p>
+	<p style="font-family: Montserrat;font-size: 15px; padding-top:150px;">Copyright 2015, Boba Buddies</p>
 	<img src="websiteBoba.png" width="25%"><img src="websiteBoba.png" width="25%"><img src="websiteBoba.png" width="25%"><img src="websiteBoba.png" width="25%">
 	<div id="whiteBox"></div>
 </footer>

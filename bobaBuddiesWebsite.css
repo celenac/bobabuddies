@@ -1125,7 +1125,7 @@ a:hover{
 body {
 	/*background-color: #E3D69A;*/ /*milk tea color*/
 	background-color: white;
-
+	
 }
 
 #banner {
@@ -1180,7 +1180,7 @@ h2.pageHeading {
 	font-size: 35px;
 	margin: auto;
 	padding:10px;
-
+	
 }
 
 /* HOME PAGE ONLY */
@@ -1249,10 +1249,10 @@ p.pageFont {
 
 img.creator {
     /*display: inline-block;*/
-  margin-left: auto;
-  margin-right: auto;
-  padding: 25px;
-  padding-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    padding-bottom: 0px;
 	height: 350px;
 	width: 350px;
 }
