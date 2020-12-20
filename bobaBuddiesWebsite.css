@@ -1319,12 +1319,12 @@ p.creatorDescription {
 font-family: 'Pixel';
 font-style: normal;
 font-weight: normal;
-src: local('BM gaia A10'), url('BMgaia.woff') format('woff');
+src: local('BM gaia A10'), url('fonts/BMgaia.woff') format('woff');
 }
 
 @font-face {
 font-family: 'Bubble';
 font-style: normal;
 font-weight: normal;
-src: local('SHAKAGRAPHICS 05'), url('SG05.woff') format('woff');
+src: local('SHAKAGRAPHICS 05'), url('fonts/SG05.woff') format('woff');
 }

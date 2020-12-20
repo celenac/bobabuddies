@@ -56,11 +56,11 @@ var tryagain2;
 var gameFont;
 
 //declares all of the sounds
-var buttonSound = new buzz.sound ("buttonClickSound.mp3");
-var buttonSound2 = new buzz.sound ("buttonClickSound2.mp3");
-var backgroundSound = new buzz.sound("backgroundSoundFinal.mp3");
-var homeMusic= new buzz.sound ("homepageSound.mp3");
-var jumpSound = new buzz.sound("jumpSound.wav");
+var buttonSound = new buzz.sound ("sounds/buttonClickSound.mp3");
+var buttonSound2 = new buzz.sound ("sounds/buttonClickSound2.mp3");
+var backgroundSound = new buzz.sound("sounds/backgroundSoundFinal.mp3");
+var homeMusic= new buzz.sound ("sounds/homepageSound.mp3");
+var jumpSound = new buzz.sound("sounds/jumpSound.wav");
 	
 //allows playing with buzz API
 function playWithLoop(soundToPlay) {
